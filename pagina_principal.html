@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@500;700&display=swap">
+    <title>Postres Italianos</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        header img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .card {
+            transition: transform 0.2s;
+        }
+        
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            border-radius: 8px;
+            margin: 15% auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 500px;
+        }
+
+        h1 {
+            color: #c0392b; /* Rojo de la bandera de Italia */
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        h2, h4 {
+            color: #2980b9; /* Azul claro */
+        }
+
+        p {
+            color: #34495e; /* Gris oscuro */
+        }
+
+        footer {
+            background-color: #2c3e50; /* Gris oscuro */
+            color: white;
+            padding: 10px 0;
+        }
+
+        .qr-code {
+            max-width: 150px;
+        }
+
+        .navbar {
+            background-color: #ecf0f1; /* Gris claro */
+        }
+
+        .btn-primary {
+            background-color: #27ae60; /* Verde */
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #219150; /* Verde más oscuro */
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="images/fondo.png" alt="Deliciosos Postres" class="img-fluid">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <button class="btn btn-primary" onclick="openModal('tiramisuModal')">Tiramisu</button>
+                <button class="btn btn-primary" onclick="openModal('rolloCanelaModal')">Rollos de Canela</button>
+                <button class="btn btn-primary" onclick="openModal('carlotaLimonModal')">Carlota de Limón</button>
+                <button class="btn btn-primary" onclick="location.href='#contacto'">Contáctame</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mt-4">
+        <h1 class="text-center">Postres Italianos</h1>
+
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card" onclick="openModal('tiramisuModal')">
+                    <img class="card-img-top" src="images/tiramisu.jpeg" alt="Tiramisu">
+                    <div class="card-body">
+                        <h4 class="card-title">Tiramisu</h4>
+                        <p class="card-text">Este postre está elaborado con capas de bizcochos empapados en café, intercaladas con una rica mezcla de queso mascarpone y un toque de cacao.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card" onclick="openModal('rolloCanelaModal')">
+                    <img class="card-img-top" src="images/rollo_canela.jpeg" alt="Rollo canela">
+                    <div class="card-body">
+                        <h4 class="card-title">Rollos de Canela</h4>
+                        <p class="card-text">Sumérgete en la calidez y el aroma de nuestros Rollos de Canela, elaborados con masa suave y esponjosa.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card" onclick="openModal('carlotaLimonModal')">
+                    <img class="card-img-top" src="images/carlota.jpeg" alt="Carlota limon">
+                    <div class="card-body">
+                        <h4 class="card-title">Carlota de Limón</h4>
+                        <p class="card-text">Este refrescante postre combina la suavidad de la crema de limón con la textura crujiente de las galletas, creando un equilibrio perfecto entre dulzor y acidez.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="contacto" class="contacto text-center mt-4">
+            <h2 style="color: #2c3e50;">Contactos</h2>
+            <h4 >Para realizar su pedido, por favor contáctenos con al menos 12 horas de anticipación para garantizar la frescura de nuestros productos.</h4>
+            <img src="images/qr.png" alt="Código QR para WhatsApp" class="qr-code img-fluid">
+            <hr>
+            <a href="https://wa.me/qr/I6N5YVXLVONVD1" style="color: #27ae60;">Da Click aqui o Escanee el código QR para comunicarse con nosotros a través de WhatsApp.</a>
+            
+
+        <footer class="text-center mt-4">
+            <p style="color: #f8f9fa;">&copy; 2024 Postres Italianos. Quito, Ecuador. Todos los derechos reservados.</p>
+        </footer>
+        
+        <!-- Modals -->
+        <div id="tiramisuModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('tiramisuModal')">&times;</span>
+                <h4>Tiramisu</h4>
+                <img class="img-fluid" src="images/tiramisu.jpeg" alt="Tiramisu" style="max-width: 300px; height: auto;">
+                <p>Delicioso postre italiano hecho con capas de café, queso mascarpone y cacao.</p>
+                <ul>
+                    <li>Tamaño para 12 Personas - $20 dolares</li>
+                    <li>Tamaño para 6 Personas - $12 dolares</li>
+                    <li>Tamaño para 3 Personas - $8 dolares</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="rolloCanelaModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('rolloCanelaModal')">&times;</span>
+                <h4>Rollos de Canela</h4>
+                <img class="img-fluid" src="images/rollo_canela.jpeg" alt="Rollo canela" style="max-width: 300px; height: auto;">
+                <p>Suaves y esponjosos rollos rellenos de canela y azúcar, cubiertos con glaseado.</p>
+                <ul>
+                    <li>Caja de 12 - $18 dolares</li>
+                    <li>Caja de 8 - $12 dolares</li>
+                    <li>Caja de 4 - $6 dolares</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="carlotaLimonModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('carlotaLimonModal')">&times;</span>
+                <h4>Carlota de Limón</h4>
+                <img class="img-fluid" src="images/carlota.jpeg" alt="Carlota limon" style="max-width: 300px; height: auto;">
+                <p>Este refrescante postre combina la suavidad de la crema de limón con la textura crujiente de las galletas, creando un equilibrio perfecto entre dulzor y acidez.</p>
+                <ul>
+                    <li>Tamaño para 12 Personas - $22 dolares</li>
+                    <li>Tamaño para 6 Personas - $14 dolares</li>
+                    <li>Tamaño para 3 Personas - $10 dolares</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+        }
+    
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+    
+        // Cerrar el modal si el usuario hace clic fuera de él
+        window.onclick = function(event) {
+            const modals = document.getElementsByClassName('modal');
+            for (let i = 0; i < modals.length; i++) {
+                if (event.target == modals[i]) {
+                    closeModal(modals[i].id);
+                }
+            }
+        }
+    </script>
+    
